@@ -1,6 +1,6 @@
 import { Default } from "../components/Page";
 
-const landing = Default("/");
+const landing = Default("/plus");
 
 export const getStaticProps = landing.getStaticProps;
 

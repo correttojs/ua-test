@@ -1,6 +1,6 @@
-import { Default } from "../components/Page";
+import { Crawler } from "../../../components/Page";
 
-const landing = Default("/");
+const landing = Crawler("/sport");
 
 export const getStaticProps = landing.getStaticProps;
 
