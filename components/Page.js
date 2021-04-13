@@ -3,7 +3,9 @@ export const getStaticPropsDefault = () => {
 };
 
 export const getStaticPropsCrawler = () => {
-  return Array.from(Array(100).keys()).map((i) => `Test Element ${i}`);
+  return Array.from(Array(100).keys()).map(
+    (i) => `Test Element ${Math.floor(Math.random() * 100)}`
+  );
 };
 
 export const DefaultComp = ({ initialData, path }) => {
@@ -31,7 +33,7 @@ export const CrawlerComp = ({ initialData, path }) => {
 export const Crawler = (path) => ({
   getStaticProps: async () => {
     const initialData = getStaticPropsCrawler();
-    return { props: { initialData, path }, revalidate: 60 * 60 * 12 };
+    return { props: { initialData, path }, revalidate: 60 * 5 };
   },
   Component: CrawlerComp,
 });
@@ -39,7 +41,7 @@ export const Crawler = (path) => ({
 export const Default = (path) => ({
   getStaticProps: async () => {
     const initialData = getStaticPropsDefault();
-    return { props: { initialData, path }, revalidate: 60 * 12 };
+    return { props: { initialData, path }, revalidate: 60 };
   },
   Component: DefaultComp,
 });
